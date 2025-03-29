@@ -1,12 +1,12 @@
 @echo off
 setlocal
 
-set SRC_DIR=src\core
+set SRC_DIR=SimpleOpenScreenPlayer\src\core
 set SRC_FILE=SimpleOpenScreenPlayer.java
 set CLASS_NAME=SimpleOpenScreenPlayer
 set OUTPUT_JAR=SOSP.jar
 set MAIN_CLASS=core.SimpleOpenScreenPlayer
-set RES_FILE=src\core\sosp.png
+set RES_FILE=SimpleOpenScreenPlayer\src\core\sosp.png
 set MANIFEST=manifest.mf
 set BIN_DIR=bin
 

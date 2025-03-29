@@ -1,12 +1,12 @@
 @echo off
 setlocal
 
-set SRC_DIR=src\core
+set SRC_DIR=SimpleOpenScreenPlayer\src\core
 set SRC_FILE=SimpleOpenScreenPlayer.java
 set CLASS_NAME=SimpleOpenScreenPlayer
 set OUTPUT_JAR=SOSP.jar
 set MAIN_CLASS=core.SimpleOpenScreenPlayer
-set RES_FILE=src\core\sosp.png
+set RES_FILE=SimpleOpenScreenPlayer\src\core\sosp.png
 set MANIFEST=manifest.mf
 set BIN_DIR=bin
 
@@ -32,5 +32,5 @@ rem Cleanup
 del %MANIFEST%
 rmdir /s /q %BIN_DIR%
 
-echo Build successful. Java 8 JAR file created: %OUTPUT_JAR%
+echo Build successful. JAR file created: %OUTPUT_JAR%
 endlocal
