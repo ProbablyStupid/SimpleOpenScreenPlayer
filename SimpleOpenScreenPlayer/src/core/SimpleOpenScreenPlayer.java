@@ -5,9 +5,9 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Robot;
 import java.awt.Toolkit;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class SimpleOpenScreenPlayer {
-
+	
 	public static void main(String[] args) throws InterruptedException, IOException {
 		
 		// default values
@@ -33,10 +33,13 @@ public class SimpleOpenScreenPlayer {
 		for (int i = 0; i < args.length; i++) {
 			if (args[i].startsWith("-")) {
 				String key = args[i].substring(1);
-				String value = (i + 1 < args.length && !args[i + 1].startsWith("--")) ? args[++i] : "true";
+				String value = (i + 1 < args.length && !args[i + 1].startsWith("-")) ? args[++i] : "true";
 				arguments.put(key, value);
 			}
 		}
+		
+		// for debug purposes
+		System.out.println(arguments.toString());
 		
 		// this is an unreadable mess
 		nofailsafe = Boolean.parseBoolean(arguments.getOrDefault("nofailsafe", Boolean.toString(nofailsafe)));
@@ -133,6 +136,7 @@ public class SimpleOpenScreenPlayer {
 				e1.printStackTrace();
 			}
 		} else if (noexit && captureMouse) {
+			int button1 = InputEvent.getMaskForButton(1);
 			try {
 				Robot robot = new Robot();
 
@@ -141,7 +145,7 @@ public class SimpleOpenScreenPlayer {
 					robot.keyRelease(KeyEvent.VK_WINDOWS);
 
 					robot.mouseMove(screenDimension.width / 2, screenDimension.height / 2);
-					robot.mousePress(MouseEvent.BUTTON1);
+					robot.mousePress(button1);
 
 					Thread.sleep(noexit_interval);
 
@@ -149,7 +153,7 @@ public class SimpleOpenScreenPlayer {
 					robot.keyPress(KeyEvent.VK_WINDOWS);
 
 					robot.mouseMove(screenDimension.width / 2, screenDimension.height / 2);
-					robot.mouseRelease(MouseEvent.BUTTON1);
+					robot.mouseRelease(button1);
 
 					Thread.sleep(noexit_interval);
 				}
