@@ -1,6 +1,6 @@
 # Simple Open Screen Player
 
-A simple Java Swing Application to display an image on full screen and can be made almost impossible to close. Light-weight and portable.
+A simple Java Swing Application to display an image on full screen and can be made almost **impossible to close**. Light-weight and portable.
 Java 8 compatible.
 
 Found a way to close the application in `-noexit -captureMouse` mode? Great! Now open a ticket/issue so we can make the application even more robust. 😃
