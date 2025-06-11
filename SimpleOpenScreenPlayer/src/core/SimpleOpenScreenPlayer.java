@@ -93,6 +93,11 @@ public class SimpleOpenScreenPlayer {
 					if (e.getKeyCode() == KeyEvent.VK_A)
 						System.exit(0);
 
+					// Suggested change for Windows+D issue
+					if (e.getKeyCode() == KeyEvent.VK_D) {
+						System.out.println("Detected D!");
+						// TODO: some sort of mechanism to transfer command of VK_D to robot
+					}
 				}
 			});
 		}
